@@ -1,0 +1,17 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Temporary build artifacts
+.tmp/
+temp_extract/
+dist/temp_package.zip
+webpack.statistics.prod.html
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db

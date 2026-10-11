@@ -1,0 +1,33 @@
+{
+  "name": "roos-rfv-matrix",
+  "description": "Matriz Estratégica RFV / RFM 5x5 com Cross-Filter Nativo, Múltiplos Pequenos e Proporção Responsiva para Power BI por Roos Data Labs.",
+  "version": "1.0.0.0",
+  "author": "Roos Data Labs <paulo@roosdatalabs.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roosdatalabs/powerbi-rfv-matrix"
+  },
+  "license": "MIT",
+  "scripts": {
+    "pbiviz": "pbiviz",
+    "start": "pbiviz start",
+    "package": "pbiviz package",
+    "lint": "npx eslint ."
+  },
+  "dependencies": {
+    "@types/d3": "7.4.3",
+    "d3": "7.9.0",
+    "powerbi-visuals-api": "5.11.1",
+    "powerbi-visuals-utils-formattingmodel": "6.0.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "css-loader": "^7.1.5",
+    "eslint": "^9.11.1",
+    "eslint-plugin-powerbi-visuals": "^1.0.0",
+    "less": "^4.9.1",
+    "less-loader": "^13.0.0",
+    "ts-loader": "^9.6.2",
+    "typescript": "5.5.4"
+  }
+}

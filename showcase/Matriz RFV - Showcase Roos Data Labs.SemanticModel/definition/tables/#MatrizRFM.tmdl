@@ -1,0 +1,86 @@
+table #MatrizRFM
+	lineageTag: a1b2c3d4-1111-4000-8000-000000000001
+
+	column Recencia
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000002
+		summarizeBy: sum
+		sourceColumn: Recencia
+
+	column Frequencia/Monetario
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000003
+		summarizeBy: sum
+		sourceColumn: Frequencia/Monetario
+
+	column Descricao
+		dataType: string
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000004
+		summarizeBy: none
+		sourceColumn: Descricao
+		sortByColumn: Ordem
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000005
+		summarizeBy: sum
+		sourceColumn: Ordem
+
+	column ChaveRFM
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000008
+		summarizeBy: none
+		sourceColumn: ChaveRFM
+
+	column 'Descricao EN'
+		dataType: string
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000006
+		summarizeBy: none
+		sourceColumn: Descricao EN
+		sortByColumn: Ordem
+
+	column 'Descricao ES'
+		dataType: string
+		lineageTag: a1b2c3d4-1111-4000-8000-000000000007
+		summarizeBy: none
+		sourceColumn: Descricao ES
+		sortByColumn: Ordem
+
+	partition #MatrizRFM = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows({
+				        {1, 1, 11, "Perdidos", "Lost", "Perdidos", 1},
+				        {2, 1, 21, "Perdidos", "Lost", "Perdidos", 1},
+				        {3, 1, 31, "Prestes a Dormir", "About to Sleep", "A Punto de Dormir", 5},
+				        {4, 1, 41, "Promissores", "Promising", "Prometedores", 3},
+				        {5, 1, 51, "Clientes Recentes", "Recent Customers", "Clientes Recientes", 2},
+				        {1, 2, 12, "Perdidos", "Lost", "Perdidos", 1},
+				        {2, 2, 22, "Hibernando", "Hibernating", "Hibernando", 4},
+				        {3, 2, 32, "Prestes a Dormir", "About to Sleep", "A Punto de Dormir", 5},
+				        {4, 2, 42, "Potenciais Clientes Leais", "Potential Loyalists", "Potenciales Clientes Leales", 8},
+				        {5, 2, 52, "Potenciais Clientes Leais", "Potential Loyalists", "Potenciales Clientes Leales", 8},
+				        {1, 3, 13, "Em Risco", "At Risk", "En Riesgo", 6},
+				        {2, 3, 23, "Em Risco", "At Risk", "En Riesgo", 6},
+				        {3, 3, 33, "Precisam de Atenção", "Need Attention", "Necesitan Atención", 7},
+				        {4, 3, 43, "Potenciais Clientes Leais", "Potential Loyalists", "Potenciales Clientes Leales", 8},
+				        {5, 3, 53, "Potenciais Clientes Leais", "Potential Loyalists", "Potenciales Clientes Leales", 8},
+				        {1, 4, 14, "Em Risco", "At Risk", "En Riesgo", 6},
+				        {2, 4, 24, "Em Risco", "At Risk", "En Riesgo", 6},
+				        {3, 4, 34, "Clientes Leais", "Loyal Customers", "Clientes Leales", 10},
+				        {4, 4, 44, "Clientes Leais", "Loyal Customers", "Clientes Leales", 10},
+				        {5, 4, 54, "Clientes Leais", "Loyal Customers", "Clientes Leales", 10},
+				        {1, 5, 15, "Não Pode Perde-los", "Can't Lose Them", "No Puedes Perderlos", 9},
+				        {2, 5, 25, "Não Pode Perde-los", "Can't Lose Them", "No Puedes Perderlos", 9},
+				        {3, 5, 35, "Clientes Leais", "Loyal Customers", "Clientes Leales", 10},
+				        {4, 5, 45, "Clientes Leais", "Loyal Customers", "Clientes Leales", 10},
+				        {5, 5, 55, "Campeões", "Champions", "Campeones", 11}
+				    }, type table [Recencia = Int64.Type, #"Frequencia/Monetario" = Int64.Type, ChaveRFM = Int64.Type, Descricao = text, #"Descricao EN" = text, #"Descricao ES" = text, Ordem = Int64.Type])
+				in
+				    Fonte
+

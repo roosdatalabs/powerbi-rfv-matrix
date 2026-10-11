@@ -1,0 +1,203 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Múltiplos Pequenos",
+            "displayNameKey": "Role_SmallMultiples",
+            "description": "Dividir a matriz em múltiplos cards por categoria (ex: Segmento, Canal, Região)",
+            "descriptionKey": "Role_SmallMultiples_Description",
+            "name": "smallMultiples",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Recência (1 a 5)",
+            "displayNameKey": "Role_Recency",
+            "description": "Nota ou pontuação de Recência de 1 a 5",
+            "descriptionKey": "Role_Recency_Description",
+            "name": "recencia",
+            "kind": "GroupingOrMeasure"
+        },
+        {
+            "displayName": "Freq / Monetário (1 a 5)",
+            "displayNameKey": "Role_FrequencyMonetary",
+            "description": "Nota combinada de Frequência e Valor de 1 a 5",
+            "descriptionKey": "Role_FrequencyMonetary_Description",
+            "name": "frequenciaMonetario",
+            "kind": "GroupingOrMeasure"
+        },
+        {
+            "displayName": "Quantidade de Clientes",
+            "displayNameKey": "Role_Values",
+            "description": "Métrica que define o tamanho da bolha",
+            "descriptionKey": "Role_Values_Description",
+            "name": "values",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Dicas de ferramenta",
+            "displayNameKey": "Role_Tooltips",
+            "description": "Campos ou medidas adicionais para exibir no tooltip",
+            "descriptionKey": "Role_Tooltips_Description",
+            "name": "tooltips",
+            "kind": "GroupingOrMeasure"
+        }
+    ],
+    "tooltips": {
+        "supportedTypes": {
+            "default": true,
+            "canvas": true
+        },
+        "supportEnhancedTooltips": true,
+        "roles": [
+            "tooltips"
+        ]
+    },
+    "objects": {
+        "smallMultiplesSettings": {
+            "displayName": "Múltiplos Pequenos",
+            "displayNameKey": "Visual_SmallMultiples",
+            "properties": {
+                "columns": {
+                    "displayName": "Colunas por Linha",
+                    "displayNameKey": "Visual_SmallMultiples_Columns",
+                    "type": { "integer": true }
+                },
+                "titleFontSize": {
+                    "displayName": "Tamanho do Título",
+                    "displayNameKey": "Visual_SmallMultiples_TitleFontSize",
+                    "type": { "integer": true }
+                },
+                "titleColor": {
+                    "displayName": "Cor do Título",
+                    "displayNameKey": "Visual_SmallMultiples_TitleColor",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "showTotal": {
+                    "displayName": "Exibir Total do Grupo",
+                    "displayNameKey": "Visual_SmallMultiples_ShowTotal",
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "quadrantSettings": {
+            "displayName": "Quadrantes",
+            "displayNameKey": "Visual_Quadrants",
+            "properties": {
+                "language": {
+                    "displayName": "Idioma dos Rótulos",
+                    "displayNameKey": "Visual_QuadrantLanguage",
+                    "type": {
+                        "enumeration": [
+                            { "value": "pt-BR", "displayName": "Português (pt-BR)" },
+                            { "value": "en-US", "displayName": "English (en-US)" },
+                            { "value": "es-ES", "displayName": "Español (es-ES)" }
+                        ]
+                    }
+                },
+                "showLabels": {
+                    "displayName": "Exibir Nomes dos Segmentos",
+                    "displayNameKey": "Visual_ShowQuadrantLabels",
+                    "type": { "bool": true }
+                },
+                "opacity": {
+                    "displayName": "Opacidade do Fundo (%)",
+                    "displayNameKey": "Visual_QuadrantOpacity",
+                    "type": { "integer": true }
+                }
+            }
+        },
+        "bubbleSettings": {
+            "displayName": "Bolhas de Dados",
+            "displayNameKey": "Visual_Bubbles",
+            "properties": {
+                "showValues": {
+                    "displayName": "Exibir Valores",
+                    "displayNameKey": "Visual_ShowValues",
+                    "type": { "bool": true }
+                },
+                "minRadius": {
+                    "displayName": "Tamanho Mínimo (px)",
+                    "displayNameKey": "Visual_MinRadius",
+                    "type": { "integer": true }
+                },
+                "maxRadius": {
+                    "displayName": "Tamanho Máximo (px)",
+                    "displayNameKey": "Visual_MaxRadius",
+                    "type": { "integer": true }
+                },
+                "textColor": {
+                    "displayName": "Cor do Texto",
+                    "displayNameKey": "Visual_TextColor",
+                    "type": { "fill": { "solid": { "color": true } } }
+                }
+            }
+        },
+        "gridSettings": {
+            "displayName": "Eixos e Grade",
+            "displayNameKey": "Visual_Grid",
+            "properties": {
+                "showGrid": {
+                    "displayName": "Exibir Linhas de Grade",
+                    "displayNameKey": "Visual_ShowGrid",
+                    "type": { "bool": true }
+                },
+                "gridColor": {
+                    "displayName": "Cor da Grade",
+                    "displayNameKey": "Visual_GridColor",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "showAxisLabels": {
+                    "displayName": "Exibir Rótulos dos Eixos",
+                    "displayNameKey": "Visual_ShowAxisLabels",
+                    "type": { "bool": true }
+                },
+                "axisLabelColor": {
+                    "displayName": "Cor dos Rótulos",
+                    "displayNameKey": "Visual_AxisLabelColor",
+                    "type": { "fill": { "solid": { "color": true } } }
+                }
+            }
+        },
+        "tooltipSettings": {
+            "displayName": "Dica de Ferramenta do Visual",
+            "displayNameKey": "Visual_CustomTooltip",
+            "properties": {
+                "useCustomTooltip": {
+                    "displayName": "Tooltip Estilizado do Visual",
+                    "displayNameKey": "Visual_CustomTooltip_Enabled",
+                    "type": { "bool": true }
+                },
+                "showClusterTag": {
+                    "displayName": "Exibir Tag do Segmento",
+                    "displayNameKey": "Visual_CustomTooltip_ShowTag",
+                    "type": { "bool": true }
+                },
+                "decimalPlaces": {
+                    "displayName": "Casas Decimais (-1 = Auto)",
+                    "displayNameKey": "Visual_TooltipDecimals",
+                    "type": { "integer": true }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "table": {
+                "rows": {
+                    "select": [
+                        { "for": { "in": "smallMultiples" } },
+                        { "for": { "in": "recencia" } },
+                        { "for": { "in": "frequenciaMonetario" } },
+                        { "for": { "in": "values" } },
+                        { "for": { "in": "tooltips" } }
+                    ],
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 5000
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "privileges": []
+}

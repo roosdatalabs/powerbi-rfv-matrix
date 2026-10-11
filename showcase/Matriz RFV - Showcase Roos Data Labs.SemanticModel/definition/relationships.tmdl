@@ -1,0 +1,5 @@
+relationship Rel_MatrizRFM_dClientes
+	crossFilteringBehavior: bothDirections
+	fromColumn: dClientes.ChaveRFM
+	toColumn: #MatrizRFM.ChaveRFM
+

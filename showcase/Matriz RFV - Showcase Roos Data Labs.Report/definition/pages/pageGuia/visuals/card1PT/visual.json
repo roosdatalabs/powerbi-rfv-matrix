@@ -1,0 +1,213 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "card1PT",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 920,
+    "width": 590,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "1. CONSTRUÇÃO DA TABELA #MatrizRFM",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#1D4ED8"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\nO visual necessita de uma tabela dimensional com as 25 células da matriz (5x5). Cada linha representa uma coordenada de Recência e Frequência/Valor.",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "color": "#334155"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\n\nColunas Obrigatórias:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#0F172A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\n• Recencia (1 a 5): Eixo X da matriz\n• Frequencia/Monetario (1 a 5): Eixo Y da matriz\n• ChaveRFM (int64): Recencia * 10 + [Frequencia/Monetario]\n• Descricao (Texto): Nome do cluster (ex: Campeões, Em Risco)\n• Descricao EN / Descricao ES: Nomes traduzidos para modelos globais\n• Ordem (int64): Ordenação lógica das classes",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#475569"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\n\nCódigo Power Query (M) Pronto:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#0F172A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\nlet\n    Fonte = Table.FromRows({\n        {5, 5, 55, \"Campeões\", \"Champions\", \"Campeones\", 11},\n        {4, 5, 45, \"Clientes Leais\", \"Loyal Customers\", \"Clientes Leales\", 10},\n        ...\n        {1, 1, 11, \"Perdidos\", \"Lost\", \"Perdidos\", 1}\n    }, type table [Recencia=Int64.Type, #\"Frequencia/Monetario\"=Int64.Type, ...])\nin\n    Fonte",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#0F172A",
+                      "fontFamily": "'Consolas', monospace"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\n\n💡 Dica:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "9.5pt",
+                      "color": "#EA580C"
+                    }
+                  },
+                  {
+                    "value": " Você pode criar essa tabela via DAX com DATATABLE() ou diretamente no Power Query.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#475569"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E2E8F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "parentGroupName": "grpIdiomaPT"
+}

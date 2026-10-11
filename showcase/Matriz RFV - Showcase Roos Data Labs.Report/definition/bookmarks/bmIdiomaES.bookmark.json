@@ -1,0 +1,86 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "name": "bmIdiomaES",
+  "displayName": "Español",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "grpIdiomaPT",
+      "grpIdiomaEN",
+      "grpIdiomaES",
+      "btnIdiomaPT_Active",
+      "btnIdiomaPT_Inactive",
+      "btnIdiomaEN_Active",
+      "btnIdiomaEN_Inactive",
+      "btnIdiomaES_Active",
+      "btnIdiomaES_Inactive"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "pageGuia",
+    "sections": {
+      "pageGuia": {
+        "visualContainers": {
+          "btnIdiomaPT_Active": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "btnIdiomaPT_Inactive": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "btnIdiomaEN_Active": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "btnIdiomaEN_Inactive": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "btnIdiomaES_Active": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "btnIdiomaES_Inactive": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "grpIdiomaPT": {
+            "isHidden": true
+          },
+          "grpIdiomaEN": {
+            "isHidden": true
+          },
+          "grpIdiomaES": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

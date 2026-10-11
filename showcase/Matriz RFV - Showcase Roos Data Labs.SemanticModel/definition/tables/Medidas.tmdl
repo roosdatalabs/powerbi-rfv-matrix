@@ -1,0 +1,36 @@
+table Medidas
+	lineageTag: c1d2e3f4-3333-4000-8000-000000000001
+
+	measure 'Qtd Clientes Total' = COUNTROWS(dClientes)
+		formatString: #,0
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000002
+
+	measure 'Faturamento Total' = SUM(dClientes[Faturamento])
+		formatString: "R$" #,0.00;-"R$" #,0.00;"R$" #,0.00
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000003
+
+	measure 'Total de Pedidos' = SUM(dClientes[Pedidos])
+		formatString: #,0
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000004
+
+	measure 'Ticket Médio' = DIVIDE([Faturamento Total], [Total de Pedidos])
+		formatString: "R$" #,0.00;-"R$" #,0.00;"R$" #,0.00
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000005
+
+	measure 'Qtd Clientes RFM Tabela' = COUNTROWS(dClientes)
+		formatString: #,0
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000006
+
+	measure 'Faturamento RFM Tabela' = SUM(dClientes[Faturamento])
+		formatString: "R$" #,0.00;-"R$" #,0.00;"R$" #,0.00
+		lineageTag: c1d2e3f4-3333-4000-8000-000000000007
+
+	column Value
+		lineageTag: 6ba4423f-d7f7-4a76-8cd2-836c8cd4f923
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition Medidas = calculated
+		mode: import
+		source = {0}
+

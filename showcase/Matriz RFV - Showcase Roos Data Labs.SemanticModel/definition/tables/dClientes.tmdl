@@ -1,0 +1,115 @@
+table dClientes
+	lineageTag: b1c2d3e4-2222-4000-8000-000000000001
+
+	column 'ID Cliente'
+		dataType: string
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000002
+		summarizeBy: none
+		sourceColumn: ID Cliente
+
+	column 'Nome Cliente'
+		dataType: string
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000003
+		summarizeBy: none
+		sourceColumn: Nome Cliente
+
+	column Cidade/UF
+		dataType: string
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000004
+		summarizeBy: none
+		sourceColumn: Cidade/UF
+
+	column Segmento
+		dataType: string
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000005
+		summarizeBy: none
+		sourceColumn: Segmento
+
+	column Recencia
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000006
+		summarizeBy: sum
+		sourceColumn: Recencia
+
+	column Frequencia/Monetario
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000007
+		summarizeBy: sum
+		sourceColumn: Frequencia/Monetario
+
+	column Cluster
+		dataType: string
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000008
+		summarizeBy: none
+		sourceColumn: Cluster
+
+	column Faturamento
+		dataType: decimal
+		formatString: "R$" #,0.00;-"R$" #,0.00;"R$" #,0.00
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000009
+		summarizeBy: sum
+		sourceColumn: Faturamento
+
+	column Pedidos
+		dataType: int64
+		formatString: #,0
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000010
+		summarizeBy: sum
+		sourceColumn: Pedidos
+
+	column 'Dias sem Comprar'
+		dataType: int64
+		formatString: #,0
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000011
+		summarizeBy: sum
+		sourceColumn: Dias sem Comprar
+
+	column ChaveRFM
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-2222-4000-8000-000000000012
+		summarizeBy: none
+		sourceColumn: ChaveRFM
+
+	partition dClientes = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows({
+				        {"CL-101", "Vanguardia Alimentos S/A", "São Paulo/SP", "Indústria", 5, 5, 55, "Campeões", 345000.00, 48, 8},
+				        {"CL-102", "Nova Era Distribuição", "Belo Horizonte/MG", "Distribuição", 5, 5, 55, "Campeões", 289000.00, 42, 12},
+				        {"CL-103", "Rede Brasil Varejo", "Curitiba/PR", "Varejo", 5, 5, 55, "Campeões", 412000.00, 56, 5},
+				        {"CL-104", "Atlas Logística & Cargas", "Rio de Janeiro/RJ", "Serviços", 4, 5, 45, "Clientes Leais", 215000.00, 34, 18},
+				        {"CL-105", "Sul Mineração & Britas", "Porto Alegre/RS", "Indústria", 3, 5, 35, "Clientes Leais", 198000.00, 31, 35},
+				        {"CL-106", "Comercial Planalto Ltda", "Goiânia/GO", "Distribuição", 5, 4, 54, "Clientes Leais", 175000.00, 28, 14},
+				        {"CL-107", "Prisma Tecnologia Integrada", "Florianópolis/SC", "Serviços", 4, 4, 44, "Clientes Leais", 162000.00, 26, 22},
+				        {"CL-108", "Supermercados União Norte", "Manaus/AM", "Varejo", 3, 4, 34, "Clientes Leais", 148000.00, 24, 42},
+				        {"CL-109", "Siderúrgica Central Minas", "Contagem/MG", "Indústria", 2, 5, 25, "Não Pode Perde-los", 310000.00, 38, 95},
+				        {"CL-110", "Mega Atacadista Litoral", "Santos/SP", "Distribuição", 1, 5, 15, "Não Pode Perde-los", 278000.00, 36, 140},
+				        {"CL-111", "Distribuidora Express Bahia", "Salvador/BA", "Distribuição", 2, 4, 24, "Em Risco", 132000.00, 20, 85},
+				        {"CL-112", "Farma Global Nordeste", "Recife/PE", "Varejo", 1, 4, 14, "Em Risco", 125000.00, 19, 120},
+				        {"CL-113", "Cooperativa Agrícola Sul", "Passo Fundo/RS", "Agronegócio", 2, 3, 23, "Em Risco", 98000.00, 15, 78},
+				        {"CL-114", "Auto Peças Bandeirantes", "Campinas/SP", "Varejo", 1, 3, 13, "Em Risco", 89000.00, 14, 135},
+				        {"CL-115", "Biofarma Cosméticos", "Ribeirão Preto/SP", "Indústria", 5, 3, 53, "Potenciais Clientes Leais", 108000.00, 16, 15},
+				        {"CL-116", "Transportes Rápidos SP", "Guarulhos/SP", "Serviços", 4, 3, 43, "Potenciais Clientes Leais", 94000.00, 15, 25},
+				        {"CL-117", "Eletro Fort Materiais", "Fortaleza/CE", "Varejo", 5, 2, 52, "Potenciais Clientes Leais", 68000.00, 11, 10},
+				        {"CL-118", "Mecânica Industrial Alpha", "Joinville/SC", "Indústria", 4, 2, 42, "Potenciais Clientes Leais", 59000.00, 9, 28},
+				        {"CL-119", "Lojas Bom Preço Sul", "Caxias do Sul/RS", "Varejo", 3, 3, 33, "Precisam de Atenção", 87000.00, 13, 45},
+				        {"CL-120", "Graftech Embalagens", "Uberlândia/MG", "Indústria", 3, 3, 33, "Precisam de Atenção", 79000.00, 12, 50},
+				        {"CL-121", "Papelaria Central DF", "Brasília/DF", "Varejo", 3, 2, 32, "Prestes a Dormir", 48000.00, 8, 52},
+				        {"CL-122", "Metal Alfa Componentes", "Betim/MG", "Indústria", 3, 1, 31, "Prestes a Dormir", 22000.00, 4, 58},
+				        {"CL-123", "Restaurante & Hotel Estrela", "Gramado/RS", "Serviços", 4, 1, 41, "Promissores", 29000.00, 5, 22},
+				        {"CL-124", "Boutique Bella Moda", "Vitória/ES", "Varejo", 4, 1, 41, "Promissores", 26000.00, 4, 26},
+				        {"CL-125", "Soluções Sustentáveis Verde", "Campo Grande/MS", "Serviços", 5, 1, 51, "Clientes Recentes", 31000.00, 5, 7},
+				        {"CL-126", "Inovare Design & Móveis", "Maringá/PR", "Varejo", 5, 1, 51, "Clientes Recentes", 27000.00, 4, 11},
+				        {"CL-127", "Mercado da Vila Ltda", "Sorocaba/SP", "Varejo", 2, 2, 22, "Hibernando", 41000.00, 7, 88},
+				        {"CL-128", "Clínica Saúde & Vida", "Londrina/PR", "Serviços", 2, 2, 22, "Hibernando", 38000.00, 6, 92},
+				        {"CL-129", "Oficina Santa Rita", "Pelotas/RS", "Serviços", 2, 1, 21, "Perdidos", 18000.00, 3, 110},
+				        {"CL-130", "Bazar do Povo ME", "Natal/RN", "Varejo", 1, 2, 12, "Perdidos", 25000.00, 4, 160},
+				        {"CL-131", "Armazém da Construção", "Feira de Santana/BA", "Varejo", 1, 1, 11, "Perdidos", 14000.00, 2, 210}
+				    }, type table [#"ID Cliente" = text, #"Nome Cliente" = text, #"Cidade/UF" = text, Segmento = text, Recencia = Int64.Type, #"Frequencia/Monetario" = Int64.Type, ChaveRFM = Int64.Type, Cluster = text, Faturamento = Currency.Type, Pedidos = Int64.Type, #"Dias sem Comprar" = Int64.Type])
+				in
+				    Fonte
+

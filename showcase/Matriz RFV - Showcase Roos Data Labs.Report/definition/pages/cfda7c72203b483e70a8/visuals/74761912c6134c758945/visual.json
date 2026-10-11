@@ -1,0 +1,298 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "74761912c6134c758945",
+  "position": {
+    "x": 40,
+    "y": 236,
+    "z": 5000,
+    "height": 814,
+    "width": 1050,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "roosRfvMatrixC82A8D124C704536BA3D66733D198070",
+    "query": {
+      "queryState": {
+        "recencia": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#MatrizRFM"
+                    }
+                  },
+                  "Property": "Recencia"
+                }
+              },
+              "queryRef": "#MatrizRFM.Recencia",
+              "nativeQueryRef": "Recencia"
+            }
+          ]
+        },
+        "frequenciaMonetario": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "#MatrizRFM"
+                    }
+                  },
+                  "Property": "Frequencia/Monetario"
+                }
+              },
+              "queryRef": "#MatrizRFM.Frequencia/Monetario",
+              "nativeQueryRef": "Frequencia/Monetario"
+            }
+          ]
+        },
+        "values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Qtd Clientes RFM Tabela"
+                }
+              },
+              "queryRef": "Medidas.Qtd Clientes RFM Tabela",
+              "nativeQueryRef": "Qtd Clientes RFM Tabela"
+            }
+          ]
+        },
+        "secondaryMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Faturamento RFM Tabela"
+                }
+              },
+              "queryRef": "Medidas.Faturamento RFM Tabela",
+              "nativeQueryRef": "Faturamento RFM Tabela"
+            }
+          ]
+        },
+        "tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Faturamento Total"
+                }
+              },
+              "queryRef": "Medidas.Faturamento Total",
+              "nativeQueryRef": "Faturamento Total"
+            }
+          ]
+        },
+        "smallMultiples": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dClientes"
+                    }
+                  },
+                  "Property": "Segmento"
+                }
+              },
+              "queryRef": "dClientes.Segmento",
+              "nativeQueryRef": "Segmento"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Qtd Clientes RFM Tabela"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E2E8F0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "91e2c8cf6592748d4a52",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "#MatrizRFM"
+              }
+            },
+            "Property": "Recencia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f226def05c82b47172f5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "#MatrizRFM"
+              }
+            },
+            "Property": "Frequencia/Monetario"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6217bc26e1bf3a08e908",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Qtd Clientes RFM Tabela"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ba92ed43666a99f8f5b0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento RFM Tabela"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "893901c9b78d67cc1288",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Total"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e08ec2a1a9a6c3089b50",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dClientes"
+              }
+            },
+            "Property": "Segmento"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
