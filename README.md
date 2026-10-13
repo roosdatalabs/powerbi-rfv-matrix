@@ -3,7 +3,7 @@
 
 [![Power BI](https://img.shields.io/badge/Power_BI-Visuals_API_5.11-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0.0-green.svg)](appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.pbiviz)
+[![Version](https://img.shields.io/badge/Version-1.0.0.1-green.svg)](appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25_Client--Side-brightgreen.svg)](appsource-submission/PRIVACY_POLICY.md)
 
 An interactive, high-performance **5x5 RFM (Recency, Frequency, Monetary) / RFV** customer segmentation matrix custom visual for Microsoft Power BI. 

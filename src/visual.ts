@@ -429,6 +429,8 @@ function clearElement(element: Element | HTMLElement): void {
     }
 }
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 export class Visual implements IVisual {
     private host: IVisualHost;
     private events: IVisualEventService;
@@ -487,6 +489,24 @@ export class Visual implements IVisual {
 
         this.container = document.createElement("div");
         this.container.className = "tecdisa-rfv-container";
+
+        // Context Menu para espaço vazio no container e target (requisito Microsoft AppSource 1180.2.5)
+        const handleEmptySpaceContextMenu = (e: MouseEvent) => {
+            const el = e.target as Element | null;
+            if (el && el.closest(".bubble-group")) {
+                return;
+            }
+            e.preventDefault();
+            this.hideCustomTooltip();
+            this.host.tooltipService.hide({ isTouchEvent: false, immediately: true });
+            this.selectionManager.showContextMenu({}, {
+                x: e.clientX,
+                y: e.clientY
+            });
+        };
+
+        this.container.addEventListener("contextmenu", handleEmptySpaceContextMenu);
+        this.target.addEventListener("contextmenu", handleEmptySpaceContextMenu);
 
         // Landing Page Element
         this.landingPage = document.createElement("div");
@@ -754,8 +774,7 @@ export class Visual implements IVisual {
         const points = this.parsedData?.allPoints || [];
         const globalMax = this.parsedData?.globalMaxValue || 1;
 
-        const svgNS = "http://www.w3.org/2000/svg";
-        const svg = document.createElementNS(svgNS, "svg");
+        const svg = document.createElementNS(SVG_NS, "svg");
         svg.setAttribute("class", "tecdisa-rfv-svg");
         svg.setAttribute("viewBox", "0 0 1000 750");
         svg.setAttribute("preserveAspectRatio", "none");
@@ -769,6 +788,7 @@ export class Visual implements IVisual {
     }
 
     private renderSmallMultiples(): void {
+        const svgNS = SVG_NS;
         this.container.classList.remove("has-focus");
         this.container.classList.add("is-multiples");
 
@@ -837,12 +857,17 @@ export class Visual implements IVisual {
             focusBtn.className = "rfv-focus-btn";
             focusBtn.title = ui.focusTitle;
             focusBtn.setAttribute("aria-label", ui.focusAria(group.groupName));
-            focusBtn.innerHTML = `
-                <svg viewBox="0 0 24 24">
-                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                </svg>
-                <span>${ui.focusBtn}</span>
-            `;
+
+            const focusSvg = document.createElementNS(svgNS, "svg");
+            focusSvg.setAttribute("viewBox", "0 0 24 24");
+            const focusPath = document.createElementNS(svgNS, "path");
+            focusPath.setAttribute("d", "M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z");
+            focusSvg.appendChild(focusPath);
+            const focusSpan = document.createElement("span");
+            focusSpan.textContent = ui.focusBtn;
+            focusBtn.appendChild(focusSvg);
+            focusBtn.appendChild(focusSpan);
+
             focusBtn.addEventListener("click", (e: MouseEvent) => {
                 e.stopPropagation();
                 this.focusedGroupName = group.groupName;
@@ -857,7 +882,6 @@ export class Visual implements IVisual {
             const wrap = document.createElement("div");
             wrap.className = "rfv-multiple-svg-wrap";
 
-            const svgNS = "http://www.w3.org/2000/svg";
             const svg = document.createElementNS(svgNS, "svg");
             svg.setAttribute("viewBox", "0 0 1000 750");
             svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
@@ -872,6 +896,7 @@ export class Visual implements IVisual {
     }
 
     private renderFocusedGroup(group: MultiplesGroup): void {
+        const svgNS = SVG_NS;
         this.container.classList.remove("is-multiples");
         this.container.classList.add("has-focus");
         this.container.style.gridTemplateColumns = "";
@@ -895,12 +920,17 @@ export class Visual implements IVisual {
 
         const backBtn = document.createElement("button");
         backBtn.className = "rfv-unfocus-btn";
-        backBtn.innerHTML = `
-            <svg viewBox="0 0 24 24">
-                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-            </svg>
-            <span>${ui.backBtn}</span>
-        `;
+
+        const backSvg = document.createElementNS(svgNS, "svg");
+        backSvg.setAttribute("viewBox", "0 0 24 24");
+        const backPath = document.createElementNS(svgNS, "path");
+        backPath.setAttribute("d", "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z");
+        backSvg.appendChild(backPath);
+        const backSpan = document.createElement("span");
+        backSpan.textContent = ui.backBtn;
+        backBtn.appendChild(backSvg);
+        backBtn.appendChild(backSpan);
+
         backBtn.title = ui.backBtnTitle;
         backBtn.addEventListener("click", () => {
             this.focusedGroupName = null;
@@ -926,7 +956,6 @@ export class Visual implements IVisual {
         const svgWrap = document.createElement("div");
         svgWrap.className = "rfv-focused-svg-wrap";
 
-        const svgNS = "http://www.w3.org/2000/svg";
         const svg = document.createElementNS(svgNS, "svg");
         svg.setAttribute("viewBox", "0 0 1000 750");
         svg.setAttribute("preserveAspectRatio", "none");
@@ -940,7 +969,7 @@ export class Visual implements IVisual {
     }
 
     private renderMatrixSvg(svg: SVGSVGElement, dataPoints: MatrixDataPoint[], globalMaxValue: number): void {
-        const svgNS = "http://www.w3.org/2000/svg";
+        const svgNS = SVG_NS;
 
         // Defs (Filtro de Sombra)
         const defs = document.createElementNS(svgNS, "defs");
@@ -969,6 +998,22 @@ export class Visual implements IVisual {
             this.selectionManager.clear().then(() => {
                 this.selectedIds = [];
                 this.applySelectionStyles();
+            });
+        });
+
+        // Context menu no fundo do SVG (espaço vazio - requisito Microsoft AppSource 1180.2.5)
+        svg.addEventListener("contextmenu", (e: MouseEvent) => {
+            const el = e.target as Element | null;
+            if (el && el.closest(".bubble-group")) {
+                return;
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            this.hideCustomTooltip();
+            this.host.tooltipService.hide({ isTouchEvent: false, immediately: true });
+            this.selectionManager.showContextMenu({}, {
+                x: e.clientX,
+                y: e.clientY
             });
         });
 
@@ -1161,10 +1206,12 @@ export class Visual implements IVisual {
                 }
             });
 
-            // Context Menu
+            // Context Menu do Ponto de Dados
             g.addEventListener("contextmenu", (e: MouseEvent) => {
                 e.stopPropagation();
                 e.preventDefault();
+                this.hideCustomTooltip();
+                this.host.tooltipService.hide({ isTouchEvent: false, immediately: true });
                 this.selectionManager.showContextMenu(dp.selectionId, {
                     x: e.clientX,
                     y: e.clientY

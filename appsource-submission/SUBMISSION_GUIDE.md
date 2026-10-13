@@ -11,7 +11,7 @@ Todos os arquivos estão organizados nesta pasta (`custom-visuals/tecdisaRfvMatr
 
 | Arquivo / Item | Descrição | Onde utilizar |
 |---|---|---|
-| `Matriz_RFV_RoosDataLabs_v1.0.0.pbiviz` | Pacote compilado final de produção (v1.0.0) | Aba **Packages** no Partner Center |
+| `Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz` | Pacote compilado final de produção (v1.0.0.1 com Context Menu de espaço vazio) | Aba **Packages** no Partner Center |
 | `assets/icon_20x20.png` | Ícone do visual no painel de visualizações (20x20px) | Embutido no pacote e exibição |
 | `assets/logo_300x300.png` | Logo da oferta para vitrine do AppSource (300x300px) | Aba **Store listings > Marketplace media** |
 | `PRIVACY_POLICY.md` | Texto oficial da política de privacidade | Link ou publicação em `https://roosdatalabs.com/privacy` |
@@ -28,7 +28,7 @@ Todos os arquivos estão organizados nesta pasta (`custom-visuals/tecdisaRfvMatr
 ## 2. Passo a Passo no Microsoft Partner Center
 
 1. Acesse o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-2. Clique em **Marketplace comercial** > **Ofertas** > **Nova oferta** > **Visual do Power BI**.
+2. Clique em **Marketplace comercial** > **Ofertas** > Selecione a oferta existente ou **Nova oferta** > **Visual do Power BI**.
 3. Preencha cada aba com as informações fornecidas abaixo.
 
 ---
@@ -43,7 +43,7 @@ Todos os arquivos estão organizados nesta pasta (`custom-visuals/tecdisaRfvMatr
 ### Aba 2: Propriedades (Properties)
 
 - **GUID do Visual**: `roosRfvMatrixC82A8D124C704536BA3D66733D198070`
-- **Versão do Visual**: `1.0.0.0`
+- **Versão do Visual**: `1.0.0.1`
 - **Categorias (Categories)**:
   - `Data Analytics` (Análise de Dados)
   - `Sales & Marketing` (Vendas e Marketing)
@@ -330,36 +330,70 @@ Matriz RFM, Matriz RFV, Segmentación de Clientes, Recencia, Frecuencia, Monetar
 ```text
 Dear Microsoft Power BI Visuals Certification Team,
 
-Please find the submission for "RFM Matrix - Customer Segmentation" by Roos Data Labs.
+Please find the re-submission for "RFM Matrix - Customer Segmentation" (Product ID: aa71f17f-7461-4a14-805f-ab51f9b7deb3) by Roos Data Labs.
 
+This update addresses all feedback items from the certification report:
+1. Policy 100.14.1 (Testing Instructions & Source Code Repository)
+2. Policy 1180.2.5 (Right-Click Context Menu on Empty Space)
+
+==================================================
+1. SOURCE CODE REPOSITORY & ACCESS CREDENTIALS
+==================================================
+- Source Code Repository URL: https://github.com/roosdatalabs/powerbi-rfv-matrix
+- Repository Access: The repository is PUBLIC. No credentials or invitations are required to clone, inspect, or build the source code.
+- License: Open-source MIT License.
+
+==================================================
+2. PREMIUM FEATURES & LICENSE / ACTIVATION KEYS
+==================================================
+- Premium Features: NONE.
+- Activation Keys: NOT APPLICABLE.
+- Pricing Model: 100% Free. The visual does not contain any paid tiers, subscriptions, paywalls, or in-app purchases. All features are fully functional out of the box.
+
+==================================================
+3. RIGHT-CLICK CONTEXT MENU VERIFICATION (Policy 1180.2.5)
+==================================================
+- Empty Space Context Menu: Right-clicking anywhere on the empty space (matrix background, card containers, headers, or whitespace) invokes `selectionManager.showContextMenu({}, { x, y })`, correctly displaying the native visual-level basic context menu.
+- Data Point Context Menu: Right-clicking on any bubble data point invokes `selectionManager.showContextMenu(selectionId, { x, y })`, displaying data-point specific actions (Include, Exclude, Show as a table, etc.).
+
+==================================================
+4. STEP-BY-STEP TESTING INSTRUCTIONS (Using Attached Sample PBIX)
+==================================================
 Visual Details:
+- Name: Matrix RFV / RFM
 - GUID: roosRfvMatrixC82A8D124C704536BA3D66733D198070
-- Version: 1.0.0.0
+- Version: 1.0.0.1
 - API Version: 5.11.1
 
-Step-by-Step Testing Instructions (using the attached Sample PBIX):
-1. Page 1 - "Executive Overview":
+Test Steps:
+1. Context Menu Testing:
+   - On any page, right-click on the background / empty space of the matrix visual -> Verify that Power BI's basic context menu is displayed.
+   - Right-click directly on any bubble -> Verify that the data-point context menu is displayed with data options.
+
+2. Page 1 - "Executive Overview":
    - Observe the 5x5 RFM Matrix rendered with 11 strategic color-coded quadrants.
    - Click any bubble (e.g., "Champions" or "At Risk") to verify bidirectional cross-filtering on the accompanying table and KPI cards.
    - Hover over bubbles to test the styled dark tooltip displaying segment metrics and custom formatting.
-   - Click matrix background to clear cross-filtering selections.
+   - Click the matrix background to clear cross-filtering selections.
 
-2. Page 2 - "Executive Overview - Multiples":
+3. Page 2 - "Executive Overview - Multiples":
    - Observe the Small Multiples mode grouped by customer segment/tier.
    - Notice the unified global bubble scale across cards.
-   - Click the "Focus" button on any card (or click its title) to trigger Focus Mode, expanding the card to fill the visual container.
+   - Click the "Focus" button on any card (or click its title) to trigger Focus Mode, expanding the card to fill the entire visual container.
    - Click "<- Back to all blocks" or press the 'Esc' key to return to the full small multiples grid.
 
-3. Format Pane Customization:
+4. Format Pane Customization:
    - In Format Pane > "Quadrants" > "Labels Language", toggle between "English (en-US)", "Português (pt-BR)", and "Español (es-ES)". Observe instantaneous localization of quadrant names, axis markers, buttons, and tooltips.
    - In "Quadrants" > "Background Opacity (%)", test slider responsiveness.
    - In "Small Multiples" > "Columns per Row", test column layout changes (1 to 4).
 
-Security & Privacy Verification:
-- The visual is 100% client-side and self-contained.
-- Zero external HTTP/HTTPS requests, zero WebSockets, and zero external script loaders.
-- Does not use localStorage or cookies.
-- Fully eligible for Power BI Certified Visual status.
+==================================================
+5. SECURITY & PRIVACY VERIFICATION
+==================================================
+- 100% client-side execution in memory.
+- Zero external HTTP/HTTPS network calls, zero WebSockets, and zero external resource loaders.
+- No access to local storage, cookies, or external tracking.
+- Fully compliant with Microsoft Power BI Certified Visual requirements.
 
 Thank you for your review. For any inquiries, please contact paulo@roosdatalabs.com.
 ```

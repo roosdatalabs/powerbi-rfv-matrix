@@ -1,7 +1,7 @@
 {
   "name": "roos-rfv-matrix",
   "description": "Matriz Estratégica RFV / RFM 5x5 com Cross-Filter Nativo, Múltiplos Pequenos e Proporção Responsiva para Power BI por Roos Data Labs.",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "author": "Roos Data Labs <paulo@roosdatalabs.com>",
   "repository": {
     "type": "git",

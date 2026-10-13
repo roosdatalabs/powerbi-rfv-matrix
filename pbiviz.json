@@ -4,7 +4,7 @@
     "displayName": "Matriz RFV / RFM - Roos Data Labs",
     "guid": "roosRfvMatrixC82A8D124C704536BA3D66733D198070",
     "visualClassName": "Visual",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "description": "Matriz Estratégica RFV / RFM 5x5 com Cross-Filter Nativo, Quadrantes Coloridos e Proporção Responsiva para Power BI por Roos Data Labs.",
     "supportUrl": "https://roosdatalabs.com",
     "gitHubUrl": "https://github.com/roosdatalabs/powerbi-rfv-matrix"
@@ -26,5 +26,5 @@
     "stringResources/pt-BR/resources.resjson",
     "stringResources/es-ES/resources.resjson"
   ],
-  "version": "1.0.0.0"
+  "version": "1.0.0.1"
 }
