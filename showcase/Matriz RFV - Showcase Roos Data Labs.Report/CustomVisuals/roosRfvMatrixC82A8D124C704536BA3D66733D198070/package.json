@@ -1,29 +1,17 @@
 {
-  "version": "1.0.0.0",
-  "author": {
-    "name": "Roos Data Labs",
-    "email": "paulo@roosdatalabs.com"
-  },
-  "resources": [
-    {
-      "resourceId": "rId0",
-      "sourceType": 5,
-      "file": "resources/roosRfvMatrixC82A8D124C704536BA3D66733D198070.pbiviz.json"
-    }
-  ],
-  "visual": {
-    "name": "roosRfvMatrix",
-    "displayName": "Matriz RFV / RFM - Roos Data Labs",
-    "guid": "roosRfvMatrixC82A8D124C704536BA3D66733D198070",
-    "visualClassName": "Visual",
-    "version": "1.0.0.0",
-    "description": "Matriz Estratégica RFV / RFM 5x5 com Cross-Filter Nativo, Quadrantes Coloridos e Proporção Responsiva para Power BI por Roos Data Labs.",
-    "supportUrl": "https://roosdatalabs.com",
-    "gitHubUrl": "https://github.com/roosdatalabs/powerbi-rfv-matrix"
-  },
-  "metadata": {
-    "pbivizjson": {
-      "resourceId": "rId0"
-    }
-  }
-}
+		"version": "1.0.0.1",
+		"author": {"name":"Roos Data Labs","email":"paulo@roosdatalabs.com"},
+		"resources": [
+			{
+				"resourceId": "rId0",
+				"sourceType": 5,
+				"file": "resources/roosRfvMatrixC82A8D124C704536BA3D66733D198070.pbiviz.json"
+			}
+		],
+		"visual": {"name":"roosRfvMatrix","displayName":"Matriz RFV / RFM - Roos Data Labs","guid":"roosRfvMatrixC82A8D124C704536BA3D66733D198070","visualClassName":"Visual","version":"1.0.0.1","description":"Matriz Estratégica RFV / RFM 5x5 com Cross-Filter Nativo, Quadrantes Coloridos e Proporção Responsiva para Power BI por Roos Data Labs.","supportUrl":"https://roosdatalabs.com","gitHubUrl":"https://github.com/roosdatalabs/powerbi-rfv-matrix"},
+		"metadata": {
+			"pbivizjson": {
+				"resourceId": "rId0"
+			}
+		}
+	}
