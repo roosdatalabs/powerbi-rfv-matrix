@@ -3,8 +3,9 @@
 
 [![Power BI](https://img.shields.io/badge/Power_BI-Visuals_API_5.11-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0.1-green.svg)](appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz)
+[![Version](https://img.shields.io/badge/Version-1.0.0.2-green.svg)](appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.2.pbiviz)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25_Client--Side-brightgreen.svg)](appsource-submission/PRIVACY_POLICY.md)
+[![Testing](https://img.shields.io/badge/Testing-Verified-blue.svg)](TESTING.md)
 
 An interactive, high-performance **5x5 RFM (Recency, Frequency, Monetary) / RFV** customer segmentation matrix custom visual for Microsoft Power BI. 
 
@@ -107,10 +108,27 @@ npm install
 
 ### Packaging the Visual
 ```bash
-npx powerbi-visuals-tools package
+npx powerbi-visuals-tools package --certification-audit
 ```
 The compiled visual package will be generated at:
-`dist/roosRfvMatrixC82A8D124C704536BA3D66733D198070.1.0.0.0.pbiviz`
+`dist/roosRfvMatrixC82A8D124C704536BA3D66733D198070.1.0.0.2.pbiviz`
+
+---
+
+## 🧪 Testing & Review Instructions
+
+Complete step-by-step verification procedures are documented in:
+👉 **[TESTING.md](TESTING.md)**
+
+### Quick Verification Checklist:
+1. **Sample Report**: Open [`appsource-submission/Matriz RFV - Showcase Roos Data Labs.pbix`](appsource-submission/Matriz%20RFV%20-%20Showcase%20Roos%20Data%20Labs.pbix) in Power BI Desktop.
+2. **Context Menu (Policy 1180.2.5)**:
+   - Right-click on empty background space -> Basic visual context menu displays.
+   - Right-click directly on any bubble -> Data-point context menu displays.
+3. **Cross-Filtering**: Click any bubble (e.g., *Champions*) -> Accompanying tables and cards cross-filter immediately. Click background to clear.
+4. **Small Multiples & Focus Mode**: On Page 2, click the **Focus** button on any card to maximize it; press `Esc` to return.
+5. **Localization**: In Format Pane > *Quadrants > Labels Language*, toggle between `English (en-US)`, `Português (pt-BR)`, and `Español (es-ES)`.
+6. **Code Quality**: Run `npm run lint` (0 errors, 0 warnings).
 
 ---
 
