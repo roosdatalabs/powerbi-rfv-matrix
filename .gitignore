@@ -5,8 +5,12 @@ package-lock.json
 # Temporary build artifacts
 .tmp/
 temp_extract/
-dist/temp_package.zip
+dist/
 webpack.statistics.prod.html
+
+# Power BI Desktop caches
+.pbi/cache.abf
+*.abf
 
 # Logs
 *.log

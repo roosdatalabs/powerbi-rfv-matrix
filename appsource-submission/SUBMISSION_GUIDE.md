@@ -318,8 +318,9 @@ Matriz RFM, Matriz RFV, Segmentación de Clientes, Recencia, Frecuencia, Monetar
 ### Aba 4: Pacotes (Packages)
 
 1. Faça o upload do arquivo:
-   `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.pbiviz`
-2. Faça o upload do **Relatório de Amostra (`.pbix`)** demonstrativo que você preparou.
+   `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz`
+2. Faça o upload do **Relatório de Amostra (`.pbix`)** demonstrativo:
+   `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz RFV - Showcase Roos Data Labs.pbix`
 
 ---
 
@@ -332,15 +333,21 @@ Dear Microsoft Power BI Visuals Certification Team,
 
 Please find the re-submission for "RFM Matrix - Customer Segmentation" (Product ID: aa71f17f-7461-4a14-805f-ab51f9b7deb3) by Roos Data Labs.
 
-This update addresses all feedback items from the certification report:
-1. Policy 100.14.1 (Testing Instructions & Source Code Repository)
-2. Policy 1180.2.5 (Right-Click Context Menu on Empty Space)
+This update addresses all feedback items and policies from prior certification reports:
+1. Policy 1200.1.1.1 (Code Repository & Required "certification" Branch)
+2. Policy 1180.2.5 (Right-Click Context Menu on Empty Space & Data Points)
+3. Policy 100.14.1 (Step-by-Step Testing Instructions & Repository Access)
 
 ==================================================
-1. SOURCE CODE REPOSITORY & ACCESS CREDENTIALS
+1. SOURCE CODE REPOSITORY & CERTIFICATION BRANCH (Policy 1200.1.1.1)
 ==================================================
 - Source Code Repository URL: https://github.com/roosdatalabs/powerbi-rfv-matrix
-- Repository Access: The repository is PUBLIC. No credentials or invitations are required to clone, inspect, or build the source code.
+- Certification Branch: certification
+- Direct Branch Link: https://github.com/roosdatalabs/powerbi-rfv-matrix/tree/certification
+- Repository Access: The repository is 100% PUBLIC. No credentials, tokens, or invitations are required to clone, inspect, or build the source code.
+- Version Tag: v1.0.0.1
+- Package Match: The source code in the 'certification' branch matches the submitted package 'Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz' with 100% byte fidelity.
+- Build Artifacts Hygiene: Output directories (dist/, node_modules/, .tmp/) are properly excluded via .gitignore per policy 1200.1.1.
 - License: Open-source MIT License.
 
 ==================================================

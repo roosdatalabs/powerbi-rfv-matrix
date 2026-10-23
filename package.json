@@ -27,6 +27,7 @@
     "eslint-plugin-powerbi-visuals": "^1.0.0",
     "less": "^4.9.1",
     "less-loader": "^13.0.0",
+    "powerbi-visuals-tools": "^7.2.1",
     "ts-loader": "^9.6.2",
     "typescript": "5.5.4"
   }
