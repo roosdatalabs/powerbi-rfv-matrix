@@ -11,7 +11,7 @@ Todos os arquivos estão organizados nesta pasta (`custom-visuals/tecdisaRfvMatr
 
 | Arquivo / Item | Descrição | Onde utilizar |
 |---|---|---|
-| `Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz` | Pacote compilado final de produção (v1.0.0.1 com Context Menu de espaço vazio) | Aba **Packages** no Partner Center |
+| `Matriz_RFV_RoosDataLabs_v1.0.0.2.pbiviz` | Pacote compilado final de produção (v1.0.0.2 com Context Menu de espaço vazio e versão incrementada) | Aba **Packages** no Partner Center |
 | `assets/icon_20x20.png` | Ícone do visual no painel de visualizações (20x20px) | Embutido no pacote e exibição |
 | `assets/logo_300x300.png` | Logo da oferta para vitrine do AppSource (300x300px) | Aba **Store listings > Marketplace media** |
 | `PRIVACY_POLICY.md` | Texto oficial da política de privacidade | Link ou publicação em `https://roosdatalabs.com/privacy` |
@@ -43,7 +43,7 @@ Todos os arquivos estão organizados nesta pasta (`custom-visuals/tecdisaRfvMatr
 ### Aba 2: Propriedades (Properties)
 
 - **GUID do Visual**: `roosRfvMatrixC82A8D124C704536BA3D66733D198070`
-- **Versão do Visual**: `1.0.0.1`
+- **Versão do Visual**: `1.0.0.2`
 - **Categorias (Categories)**:
   - `Data Analytics` (Análise de Dados)
   - `Sales & Marketing` (Vendas e Marketing)
@@ -318,7 +318,7 @@ Matriz RFM, Matriz RFV, Segmentación de Clientes, Recencia, Frecuencia, Monetar
 ### Aba 4: Pacotes (Packages)
 
 1. Faça o upload do arquivo:
-   `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz`
+   `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz_RFV_RoosDataLabs_v1.0.0.2.pbiviz`
 2. Faça o upload do **Relatório de Amostra (`.pbix`)** demonstrativo:
    `custom-visuals/tecdisaRfvMatrix/appsource-submission/Matriz RFV - Showcase Roos Data Labs.pbix`
 
@@ -345,8 +345,8 @@ This update addresses all feedback items and policies from prior certification r
 - Certification Branch: certification
 - Direct Branch Link: https://github.com/roosdatalabs/powerbi-rfv-matrix/tree/certification
 - Repository Access: The repository is 100% PUBLIC. No credentials, tokens, or invitations are required to clone, inspect, or build the source code.
-- Version Tag: v1.0.0.1
-- Package Match: The source code in the 'certification' branch matches the submitted package 'Matriz_RFV_RoosDataLabs_v1.0.0.1.pbiviz' with 100% byte fidelity.
+- Version Tag: v1.0.0.2
+- Package Match: The source code in the 'certification' branch matches the submitted package 'Matriz_RFV_RoosDataLabs_v1.0.0.2.pbiviz' with 100% byte fidelity.
 - Build Artifacts Hygiene: Output directories (dist/, node_modules/, .tmp/) are properly excluded via .gitignore per policy 1200.1.1.
 - License: Open-source MIT License.
 
@@ -369,7 +369,7 @@ This update addresses all feedback items and policies from prior certification r
 Visual Details:
 - Name: Matrix RFV / RFM
 - GUID: roosRfvMatrixC82A8D124C704536BA3D66733D198070
-- Version: 1.0.0.1
+- Version: 1.0.0.2
 - API Version: 5.11.1
 
 Test Steps:

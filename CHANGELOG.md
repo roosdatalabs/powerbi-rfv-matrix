@@ -5,6 +5,14 @@ This project adheres to Semantic Versioning and Microsoft Power BI Custom Visual
 
 ---
 
+## [1.0.0.2] - 2026-10-23
+
+### Changed
+- Bumped version to `1.0.0.2` for Microsoft Partner Center re-submission.
+- Synchronized sample report showcase (`.pbix` and `.pbip`) with custom visual bundle v1.0.0.2.
+
+---
+
 ## [1.0.0.1] - 2026-10-13
 
 ### Fixed
